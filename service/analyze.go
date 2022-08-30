@@ -3,14 +3,14 @@ package service
 import (
 	"log"
 	"os"
-	"service-photo-management/model"
+	m "service-photo-management/model"
 	"service-photo-management/service/analyze"
 )
 
 var (
 	ROOT_DIR string = "C://Users/faraz/Pictures"
 
-	MASTER_LIST []model.ALBUM
+	MASTER_LIST []m.ALBUM
 )
 
 func AnalyzeFolder() {
@@ -18,7 +18,7 @@ func AnalyzeFolder() {
 	directory, _ := os.ReadDir(ROOT_DIR)
 	log.Print(directory)
 
-	media := []model.FILE{}
+	media := []m.FILE{}
 	media = analyze.TraverseDirectory(directory, ROOT_DIR, media)
 	log.Print(media)
 
